@@ -1,0 +1,38 @@
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build raylib game",
+            "type": "process",
+            "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+            "args": [
+                "main.c",
+                "-o",
+                "game.exe",
+                "-IC:\\msys64\\ucrt64\\include",
+                "-LC:\\msys64\\ucrt64\\lib",
+                "-lraylib",
+                "-lopengl32",
+                "-lgdi32",
+                "-lwinmm"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run raylib game",
+            "type": "process",
+            "command": "${workspaceFolder}\\game.exe",
+            "dependsOn": "Build raylib game",
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        }
+    ]
+}
